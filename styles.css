@@ -1,0 +1,106 @@
+:root {
+    --main-color: #938f8f;
+    --select-base: #938f8f;
+    --select-background: #fff;
+}
+*,
+*::before,
+*::after {/*Reset styling*/
+    border: 0;
+    border-color: transparent;
+    box-sizing: border-box;
+    outline: none;
+}
+html,body {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--main-color);
+    line-height: 1.3rem;
+    letter-spacing: .5px; 
+}
+
+body {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+}
+
+/*Styling input*/
+.input {
+    z-index: 100;
+    font-size: 1rem;
+    font-size: max(16px, 1rem);
+    font-family: inherit;
+    padding: .25rem .5rem;
+    background-color: var(--select-background);
+    color: var(--select-base) !important;
+    caret-color: var(--select-base);
+    border: none;
+    border-width: 0px;
+    border-radius: 4px;
+    outline: none !important;
+}
+.select-body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    margin: .5rem;
+}
+.select-input {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px;
+}
+.select-input label {
+    z-index: 0;
+    transform: translateY(-23px);
+    transition: transform 1000ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.select-input input[type="text"]:focus {
+    border: none;
+    border-bottom: 1px solid var(--select-base);
+}
+.select-input input[type="text"]::placeholder {
+    color: transparent;
+}
+.select-input input[type="text"]:focus + label,
+.select-input input[type="text"]:not(:placeholder-shown) + label {
+    transform: translateY(-40px);
+}
+.select-input input[type="text"] {
+    background-color: transparent;
+    z-index: 1000;
+    border: none;
+    border-bottom: 1px solid var(--select-base);
+}
+
+/*Window*/
+.select-window-container {
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--select-background);
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    z-index: 1000;
+    box-shadow: -5px 5px 7px 3px rgba(0,0,0,.1);
+    border-radius: 6px;
+}
+
+.select-window-options {
+   padding: 1rem;
+   border: none;
+   width: inherit;
+   text-align: center;
+   /* border-bottom: 1px solid var(--select-base); */
+}
+.select-window-options:hover {
+    background-color: #d4d4d4;    
+    border: none;
+}
